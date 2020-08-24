@@ -37,6 +37,20 @@ class _HomeState extends State<Home> {
   TextEditingController inputBorderBottomLeft = TextEditingController()
     ..text = '0';
 
+  void _resetFields() {
+    inputBorderTopLeft.text = '0';
+    inputBorderBottomLeft.text = '0';
+    inputBorderBottomRight.text = '0';
+    inputBorderTopRight .text = '0';
+    setState(() {
+      codeCSS = "{ border-radius: 0px 0px 0px 0px; }";
+      borderRadiusTopLeft = 0;
+      borderRadiusTopRight = 0;
+      borderRadiusBottomRight = 0;
+      borderRadiusBottomLeft = 0;
+    });
+  }
+
   void _changeBorderValue(String value, String which) {
     setState(() {
       if (which == 'TL')
@@ -66,6 +80,14 @@ class _HomeState extends State<Home> {
           title: Text("Border Radius Preview"),
           centerTitle: true,
           backgroundColor: Colors.pink,
+          actions: <Widget> [
+            IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: () {
+                _resetFields();
+              },
+            )
+          ],
         ),
         body: Builder(
           builder: (context) {
