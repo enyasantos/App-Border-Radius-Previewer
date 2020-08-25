@@ -98,6 +98,7 @@ class _HomeState extends State<Home> {
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height -
                     Scaffold.of(context).appBarMaxHeight,
+                width:  MediaQuery.of(context).size.width,
               ),
               Padding(
                   padding: EdgeInsets.only(top: 50.0),
@@ -209,7 +210,9 @@ class _HomeState extends State<Home> {
                                   ))),
                         ],
                       ),
-                      Container(
+                      AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        curve: Curves.ease,
                         width: 246.0,
                         height: 194.0,
                         decoration: BoxDecoration(
